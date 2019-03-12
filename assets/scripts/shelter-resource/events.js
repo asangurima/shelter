@@ -1,23 +1,18 @@
-SHELTER
-// 'use strict'
-//
+// SHELTER
+'use strict'
+
 // const getFormFields = require('../../../lib/get-form-fields.js')
-// const api = require('./api.js')
-// const ui = require('./ui.js')
-//
-// const onSignUp = (event) => {
-//   event.preventDefault()
-//
-//   const form = event.target
-//   // console.log('form:', form)
-//
-//   const formData = getFormFields(form)
-//   // console.log('formData:', formData)
-//   // user messages to print based on success or failure:
-//   api.signUp(formData)
-//     .then(ui.signUpSuccess)
-//     .catch(ui.signUpFailure)
-// }
+const api = require('./api.js')
+const ui = require('./ui.js')
+
+const onGetShelters = (event) => {
+  event.preventDefault()
+
+  api.getShelters()
+    .then(ui.getSheltersSuccess)
+    .catch(ui.getSheltersFailure)
+}
+
 //
 // const onSignIn = (event) => {
 //   event.preventDefault()
@@ -46,13 +41,13 @@ SHELTER
 //     .catch(ui.signOutFailure)
 // }
 //
-// const addHandlers = () => {
-//   $('#sign-up-form').on('submit', onSignUp)
-//   $('#sign-in-form').on('submit', onSignIn)
-//   $('#change-password-form').on('submit', onChangePassword)
-//   $('#sign-out-form').on('submit', onSignOut)
-// }
-//
-// module.exports = {
-//   addHandlers
-// }
+const addHandlers = () => {
+  $('#getSheltersButton').on('click', onGetShelters)
+  // $('#-form').on('submit', onSignIn)
+  // $('#-form').on('submit', onChangePassword)
+  // $('#-form').on('submit', onSignOut)
+}
+
+module.exports = {
+  addHandlers
+}

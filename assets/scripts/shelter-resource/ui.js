@@ -1,26 +1,25 @@
 
-SHELTER
+// SHELTER
 
-// 'use strict'
+'use strict'
+
+const showSheltersTemplate = require('../templates/shelter-listing.handlebars')
 // const store = require('../store.js')
 //
-// const signUpSuccess = () => {
-//   console.log('sign up success- woohoo!')
-//   $('.register-msg').text('Successfully registered!')
-//   $('form').trigger('reset')
-//   setTimeout(() => {
-//     $('.register-msg').html('')
-//   }, 3000)
-// }
-//
-// const signUpFailure = () => {
-//   console.log('sign up failure')
-//   $('.register-msg').text('Something went wrong. Perhaps try a different email.')
-//   $('form').trigger('reset')
-//   setTimeout(() => {
-//     $('.register-msg').html('')
-//   }, 3000)
-// }
+const getSheltersSuccess = (data) => {
+  console.log('sign up success- woohoo!' + data)
+
+  const showSheltersHtml = showSheltersTemplate({ shelters: data.shelters })
+  $('.content').html(showSheltersHtml)
+}
+
+const getSheltersFailure = () => {
+  console.log('Could not retrieve shelter data-failure!')
+  $('.register-msg').text('Something went wrong. Unable to retrieve shelter data')
+  setTimeout(() => {
+    $('.register-msg').html('')
+  }, 3000)
+}
 
 // const signInSuccess = (responseData) => {
 //   $('.auth-messages').text(`Successfully signed in!`)
@@ -95,8 +94,8 @@ SHELTER
 // }
 //
 module.exports = {
-  signUpSuccess,
-  signUpFailure
+  getSheltersSuccess,
+  getSheltersFailure
   // signInSuccess,
   // signInFailure,
   // changePasswordSuccess,
