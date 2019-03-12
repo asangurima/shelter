@@ -1,9 +1,22 @@
 
-#navbar-brand {
-    color: $deep-ocean-color;
+body {
+  background-color: $shelter-lighter-lavender-color;
+}
+
+.title {
+    color: $shelter-dark-purple-color;
     font-size: 30px;
     font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
 
+.submit {
+  background-color: $shelter-dark-periwinkle-color;
+  color: #FFFFFF;
+}
+
+#nav-item {
+  font-family: 'Quicksand', sans-serif;
 }
 
 .dropdown {

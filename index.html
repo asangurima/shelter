@@ -6,38 +6,124 @@
 
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-
+      <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Nanum+Gothic|Quicksand|Ubuntu" rel="stylesheet">
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <!-- <a class="navbar-brand" href="#">Navbar</a> -->
         <div class="navbar-brand" id="navbar-brand">
-          <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-            Shelter
+          <img src="/home-icon-lavender.png" width="40" height="40" class="d-inline-block align-top" alt="shelter icon">
+            <p class= "title d-inline-block align-top">Shelter</p>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-            <!-- <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li> -->
-            <li class="nav-item">
-              <a class="nav-link" href="#">Shelter Log In > Modal</a>
+            <li class="nav-item signed-out-nav">
+              <a class="nav-link" data-toggle="modal" data-target=".modal-sign-in" href="#">Shelter Sign In</a>
+              <div class="modal fade modal-sign-in" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Shelter Sign In</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form id="sign-in-form">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Email address</label>
+                          <input type="email" name="credentials[email]" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                          <!-- <small id="emailHelp" class="form-text text-muted">Please do not put in real information- app not secure.</small> -->
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputPassword1">Password</label>
+                          <input name="credentials[password]" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn submit">Submit</button>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <p class='sign-in-msg'></p>
+                      <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item signed-out-nav">
+              <a class="nav-link" data-toggle="modal" data-target=".modal-register" href="#">Register A Shelter</a>
+              <div class="modal fade modal-register" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Register A Shelter</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form id="sign-up-form">
+                        <div class="form-group">
+                          <label for="RegisterInputEmail">Email address</label>
+                          <input name="credentials[email]" type="email" class="form-control" id="RegisterInputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                          <small id="emailHelp" class="form-text text-muted">Please do not put in real information- app not secure.</small>
+                        </div>
+                        <div class="form-group">
+                          <label for="RegisterInputPassword1">Password</label>
+                          <input name="credentials[password]" type="password" class="form-control" id="RegisterInputPassword1" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                          <label for="RegisterInputPassword2">Confirm Password</label>
+                          <input name="credentials[password_confirmation]" type="password" class="form-control" id="RegisterInputPassword2" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn submit">Submit</button>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <p class='register-msg'></p>
+                      <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Register A Shelter > Modal</a>
+              <button type="submit" class="btn submit sign-out d-none signed-in-nav">Sign Out</button>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About > Modal</a>
+              <a class="nav-link" data-toggle="modal" data-target=".modal-about" href="#">About</a>
+                <div class="modal fade modal-about" tabindex="-1" role="dialog">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">About</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>This app was created by Alessandra Sangurima as her first full-stack project.
+                          She was inspired by her experience working in social services.</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
             </li>
           </ul>
         </div>
+
       </nav>
+      <main>
+        <section class= "user-messages"></section>
+      </main>
     </body>
 </html>
