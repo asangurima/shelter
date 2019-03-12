@@ -15,9 +15,9 @@ const getSheltersSuccess = (data) => {
 
 const getSheltersFailure = () => {
   console.log('Could not retrieve shelter data-failure!')
-  $('.register-msg').text('Something went wrong. Unable to retrieve shelter data')
+  $('.content').text('Something went wrong. Unable to retrieve shelter data')
   setTimeout(() => {
-    $('.register-msg').html('')
+    $('.content').html('')
   }, 3000)
 }
 

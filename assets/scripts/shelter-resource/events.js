@@ -42,12 +42,13 @@ const onGetShelters = (event) => {
 // }
 //
 const addHandlers = () => {
-  $('#getSheltersButton').on('click', onGetShelters)
+  $('#RefreshSheltersButton').on('click', onGetShelters)
   // $('#-form').on('submit', onSignIn)
   // $('#-form').on('submit', onChangePassword)
   // $('#-form').on('submit', onSignOut)
 }
 
 module.exports = {
+  // onGetShelters,
   addHandlers
 }
