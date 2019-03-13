@@ -67,8 +67,8 @@ const addHandlers = () => {
   $('#RefreshSheltersButton').on('click', onRefreshShelters)
   $('#create-shelter-form').on('submit', onCreateShelter)
   $('#get-user-shelters-button').on('click', onGetUserShelters)
-  $('#update-shelter-form').on('submit', onUpdateShelter)
-  $('#delete-shelter-button').on('submit', onDeleteShelter)
+  $('#content').on('submit', '#update-shelter-form', onUpdateShelter)
+  $('#content').on('click', '#delete-shelter-button', onDeleteShelter)
   // $('#-form').on('submit', onUpdateShelter)
 }
 
