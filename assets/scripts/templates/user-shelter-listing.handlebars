@@ -1,0 +1,23 @@
+{{#each shelters as |shelter|}}
+  {{log shelter}}
+
+  <section class="shelter signed-in-view" data-id="{{shelter.id}}">
+    <h4>
+      {{shelter.name}}
+    </h4>
+    <p>
+      <small>Location:</small> {{shelter.location}}
+    </p>
+    <p>
+      <small>Phone:</small>
+      <a href="tel:{{shelter.phone_num}}">{{shelter.phone_num}}</a>
+    </p>
+    <p>
+      <small>Available Beds:</small> {{shelter.avail_beds}}
+    </p>
+
+    <button class='update-btn btn submit'>Update Shelter</button>
+    <button class='delete-btn btn submit'>Delete Shelter</button>
+  </section>
+
+{{/each}}

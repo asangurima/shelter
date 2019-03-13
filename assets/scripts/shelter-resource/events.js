@@ -11,9 +11,16 @@ const onGetShelters = () => {
     .catch(ui.getSheltersFailure)
 }
 
+const onGetUserShelters = () => {
+  api.getUserShelters()
+    .then(ui.getUserSheltersSuccess)
+    .catch(ui.getSheltersFailure)
+}
+
+// this is triggered on sign out! Need to clear the form.
 const onRefreshShelters = (event) => {
   event.preventDefault()
-
+  console.log('Running on refresh events!')
   api.getShelters()
     .then(ui.getSheltersSuccess)
     .catch(ui.getSheltersFailure)
@@ -24,9 +31,9 @@ const onCreateShelter = (event) => {
 
   const form = event.target
   const formData = getFormFields(form)
-  console.log('before integering', formData)
+  // console.log('before integering', formData)
   formData.shelter.avail_beds = parseInt(formData.shelter.avail_beds, 10)
-  console.log('after integering', formData)
+  // console.log('after integering', formData)
   api.createShelter(formData)
     .then(ui.createShelterSuccess)
     .catch(ui.createShelterFailure)
@@ -59,9 +66,9 @@ const onDeleteShelter = (event) => {
 const addHandlers = () => {
   $('#RefreshSheltersButton').on('click', onRefreshShelters)
   $('#create-shelter-form').on('submit', onCreateShelter)
-  // $('#get-shelter-form').on('submit', onGetShelter)
+  $('#get-user-shelters-button').on('click', onGetUserShelters)
   $('#update-shelter-form').on('submit', onUpdateShelter)
-  $('#delete-shelter-form').on('submit', onDeleteShelter)
+  $('#delete-shelter-button').on('submit', onDeleteShelter)
   // $('#-form').on('submit', onUpdateShelter)
 }
 

@@ -4,11 +4,17 @@
 'use strict'
 
 const showSheltersTemplate = require('../templates/shelter-listing.handlebars')
+const showUserSheltersTemplate = require('../templates/user-shelter-listing.handlebars')
 // const store = require('../store.js')
 //
 const getSheltersSuccess = (data) => {
   const showSheltersHtml = showSheltersTemplate({ shelters: data.shelters })
   $('#content').html(showSheltersHtml)
+}
+
+const getUserSheltersSuccess = (data) => {
+  const showUserSheltersHtml = showUserSheltersTemplate({ shelters: data.shelters })
+  $('#content').html(showUserSheltersHtml)
 }
 
 const getSheltersFailure = () => {
@@ -34,6 +40,7 @@ const createShelterFailure = () => {
 
 module.exports = {
   getSheltersSuccess,
+  getUserSheltersSuccess,
   getSheltersFailure,
   createShelterSuccess,
   createShelterFailure

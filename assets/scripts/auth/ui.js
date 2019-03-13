@@ -1,5 +1,6 @@
 'use strict'
 const store = require('../store.js')
+const shelterEvents = require('../shelter-resource/events.js')
 
 const signUpSuccess = () => {
   $('.register-msg').text('Successfully registered!')
@@ -65,11 +66,17 @@ const changePasswordFailure = () => {
 }
 
 const signOutSuccess = () => {
+  console.log('About to clear content!')
+  $('#content').text('')
+  console.log('Just cleared content!')
   $('.user-messages').text('Goodbye!')
   // $('#change-pw-button').addClass('d-none')
   $('.navbar-collapse').collapse('hide')
   $('.signed-out-view').removeClass('d-none')
   $('.signed-in-view').addClass('d-none')
+  console.log('About to display all shelters again!')
+  // How do i trigger on refresh shelters to run again from here???
+  shelterEvents.onGetShelters()
 
   store.user = null
   setTimeout(() => {

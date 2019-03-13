@@ -7,7 +7,7 @@ const config = require('../config.js')
 const store = require('../store.js')
 
 const createShelter = (formData) => {
-  console.log('data passed into AJAX req:', formData)
+  // console.log('data passed into AJAX req:', formData)
   return $.ajax({
     url: config.apiUrl + '/shelters',
     method: 'POST',
@@ -25,16 +25,15 @@ const getShelters = () => {
   })
 }
 
-// Do i need this to just get shelters belonging to signed in user?
-// const getUserShelters = () => {
-//   return $.ajax({
-//     url: config.apiUrl + '/shelters',
-//     method: 'GET',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
+const getUserShelters = () => {
+  return $.ajax({
+    url: config.apiUrl + '/user-shelters',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 // how do I pass in the shelter id?
 const getShelter = (id) => {
@@ -87,7 +86,7 @@ const deleteShelter = (shelterId) => {
 module.exports = {
   createShelter,
   getShelters,
-  // getUserShelters,
+  getUserShelters,
   getShelter,
   updateShelter,
   deleteShelter
