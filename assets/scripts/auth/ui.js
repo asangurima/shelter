@@ -27,9 +27,9 @@ const signInSuccess = (responseData) => {
   // This toggles the navbar closed on sign-in
   $('.navbar-collapse').collapse('hide')
   // hides signed-out view
-  $('.signed-out-nav').addClass('d-none')
+  $('.signed-out-view').addClass('d-none')
   // this should make the sign in view display on succesful sign-in
-  $('.signed-in-nav').removeClass('d-none')
+  $('.signed-in-view').removeClass('d-none')
 
   // const revealBoard = () => {
   //   $('.game-board').removeClass('d-none')
@@ -68,8 +68,8 @@ const signOutSuccess = () => {
   $('.user-messages').text('Goodbye!')
   // $('#change-pw-button').addClass('d-none')
   $('.navbar-collapse').collapse('hide')
-  $('.signed-out-nav').removeClass('d-none')
-  $('.signed-in-nav').addClass('d-none')
+  $('.signed-out-view').removeClass('d-none')
+  $('.signed-in-view').addClass('d-none')
 
   store.user = null
   setTimeout(() => {

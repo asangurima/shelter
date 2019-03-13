@@ -8,7 +8,7 @@ const shelterEvents = require('./shelter-resource/events.js')
 // require('./example')
 
 $(() => {
-  // shelterEvents.onGetShelters()
+  shelterEvents.onGetShelters()
   authEvents.addHandlers()
   shelterEvents.addHandlers()
 })

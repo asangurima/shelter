@@ -1,11 +1,17 @@
 // SHELTER
 'use strict'
 
-// const getFormFields = require('../../../lib/get-form-fields.js')
+const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
 
-const onGetShelters = (event) => {
+const onGetShelters = () => {
+  api.getShelters()
+    .then(ui.getSheltersSuccess)
+    .catch(ui.getSheltersFailure)
+}
+
+const onRefreshShelters = (event) => {
   event.preventDefault()
 
   api.getShelters()
@@ -13,42 +19,53 @@ const onGetShelters = (event) => {
     .catch(ui.getSheltersFailure)
 }
 
-//
-// const onSignIn = (event) => {
+const onCreateShelter = (event) => {
+  event.preventDefault()
+
+  const form = event.target
+  const formData = getFormFields(form)
+  console.log('before integering', formData)
+  formData.shelter.avail_beds = parseInt(formData.shelter.avail_beds, 10)
+  console.log('after integering', formData)
+  api.createShelter(formData)
+    .then(ui.createShelterSuccess)
+    .catch(ui.createShelterFailure)
+}
+
+// const onGetShelter = (event) => {
 //   event.preventDefault()
 //
-//   const form = event.target
-//   const formData = getFormFields(form)
-//   api.signIn(formData)
-//     .then(ui.signInSuccess)
-//     .catch(ui.signInFailure)
+//   api.getShelter()
+//     .then(ui.getShelterSuccess)
+//     .catch(ui.getShelterFailure)
 // }
-//
-// const onChangePassword = (event) => {
-//   event.preventDefault()
-//
-//   const form = event.target
-//   const formData = getFormFields(form)
-//   api.changePassword(formData)
-//     .then(ui.changePasswordSuccess)
-//     .catch(ui.changePasswordFailure)
-// }
-//
-// const onSignOut = (event) => {
-//   event.preventDefault()
-//   api.signOut()
-//     .then(ui.signOutSuccess)
-//     .catch(ui.signOutFailure)
-// }
-//
+
+const onUpdateShelter = (event) => {
+  event.preventDefault()
+
+  api.updateShelter()
+    .then(ui.updateShelterSuccess)
+    .catch(ui.updateShelterFailure)
+}
+
+const onDeleteShelter = (event) => {
+  event.preventDefault()
+
+  api.deleteShelter()
+    .then(ui.deleteShelterSuccess)
+    .catch(ui.deleteShelterFailure)
+}
+
 const addHandlers = () => {
-  $('#RefreshSheltersButton').on('click', onGetShelters)
-  // $('#-form').on('submit', onSignIn)
-  // $('#-form').on('submit', onChangePassword)
-  // $('#-form').on('submit', onSignOut)
+  $('#RefreshSheltersButton').on('click', onRefreshShelters)
+  $('#create-shelter-form').on('submit', onCreateShelter)
+  // $('#get-shelter-form').on('submit', onGetShelter)
+  $('#update-shelter-form').on('submit', onUpdateShelter)
+  $('#delete-shelter-form').on('submit', onDeleteShelter)
+  // $('#-form').on('submit', onUpdateShelter)
 }
 
 module.exports = {
-  // onGetShelters,
+  onGetShelters,
   addHandlers
 }

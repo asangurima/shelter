@@ -10,9 +10,14 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-.submit {
+.submit, .refresh {
   background-color: $shelter-dark-periwinkle-color;
   color: #FFFFFF;
+}
+
+.refresh {
+  padding: auto;
+  margin: 10px;
 }
 
 #nav-item {
@@ -26,6 +31,7 @@ body {
 main {
   @include make-container;
   @include make-container-max-widths;
+  font-family: 'Quicksand', sans-serif;
 
   .shelter {
     @include make-col-ready;

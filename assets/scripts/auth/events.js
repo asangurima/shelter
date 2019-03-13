@@ -3,6 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
+const shelterEvents = require('../shelter-resource/events.js')
 
 const onSignUp = (event) => {
   event.preventDefault()
@@ -49,7 +50,7 @@ const addHandlers = () => {
   $('#sign-up-form').on('submit', onSignUp)
   $('#sign-in-form').on('submit', onSignIn)
   $('#change-pw-form').on('submit', onChangePassword)
-  $('#sign-out').on('click', onSignOut)
+  $('#sign-out').on('click', onSignOut, shelterEvents.onRefreshShelters)
 }
 
 module.exports = {
