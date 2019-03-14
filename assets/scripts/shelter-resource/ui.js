@@ -50,10 +50,10 @@ const createShelterFailure = () => {
 const deleteShelterSuccess = (id) => {
   // console.log('on delete success- lets dispose of this modal')
   // $(`#deleteModal-${id}`).modal('dispose')
-  // $('.modal-delete-msg').text('Deleted!')
-  // setTimeout(() => {
-  //   $('.modal-delete-msg').text('')
-  // }, 3000)
+  $('.user-messages').text('Deleted!')
+  setTimeout(() => {
+    $('.user-messages').text('')
+  }, 3000)
   $('.modal-backdrop').hide()
   $('body').removeClass('modal-open')
 }
@@ -67,10 +67,12 @@ const deleteShelterFailure = () => {
 
 const updateShelterSuccess = () => {
   $('form').trigger('reset')
-  $('.modal-update-msg').text('Successfully updated!')
+  $('.user-messages').text('Successfully updated!')
   setTimeout(() => {
-    $('.modal-update-msg').text('')
+    $('.user-messages').text('')
   }, 2000)
+  $('.modal-backdrop').hide()
+  $('body').removeClass('modal-open')
 }
 
 const updateShelterFailure = () => {
