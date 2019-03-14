@@ -27,6 +27,7 @@ const getSheltersFailure = () => {
 
 // creating shelters: (find a better place to display this)
 const createShelterSuccess = (data) => {
+  $('form').trigger('reset')
   $('.user-messages').text('Shelter profile created!')
   setTimeout(() => {
     $('.user-messages').text('')
@@ -49,10 +50,10 @@ const createShelterFailure = () => {
 const deleteShelterSuccess = (id) => {
   // console.log('on delete success- lets dispose of this modal')
   // $(`#deleteModal-${id}`).modal('dispose')
-  $('.modal-delete-msg').text('Deleted!')
-  setTimeout(() => {
-    $('.modal-delete-msg').text('')
-  }, 3000)
+  // $('.modal-delete-msg').text('Deleted!')
+  // setTimeout(() => {
+  //   $('.modal-delete-msg').text('')
+  // }, 3000)
   $('.modal-backdrop').hide()
   $('body').removeClass('modal-open')
 }
@@ -65,6 +66,7 @@ const deleteShelterFailure = () => {
 }
 
 const updateShelterSuccess = () => {
+  $('form').trigger('reset')
   $('.modal-update-msg').text('Successfully updated!')
   setTimeout(() => {
     $('.modal-update-msg').text('')
@@ -72,6 +74,7 @@ const updateShelterSuccess = () => {
 }
 
 const updateShelterFailure = () => {
+  $('form').trigger('reset')
   $('.modal-update-msg').text('Something went wrong, please try again!')
   setTimeout(() => {
     $('.modal-update-msg').text('')

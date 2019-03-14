@@ -23,6 +23,7 @@ const signInSuccess = (responseData) => {
   setTimeout(() => {
     $('.user-messages').text(` Hello, ${responseData.user.email}!`)
   }, 2000)
+  $('form').trigger('reset')
   // Closes sign-in modal on successful sign in
   $('.modal-sign-in').modal('toggle')
   // This toggles the navbar closed on sign-in
@@ -66,15 +67,15 @@ const changePasswordFailure = () => {
 }
 
 const signOutSuccess = () => {
-  console.log('About to clear content!')
+  // console.log('About to clear content!')
   $('#content').text('')
-  console.log('Just cleared content!')
+  // console.log('Just cleared content!')
   $('.user-messages').text('Goodbye!')
   // $('#change-pw-button').addClass('d-none')
   $('.navbar-collapse').collapse('hide')
   $('.signed-out-view').removeClass('d-none')
   $('.signed-in-view').addClass('d-none')
-  console.log('About to display all shelters again!')
+  // console.log('About to display all shelters again!')
   // How do i trigger on refresh shelters to run again from here???
   shelterEvents.onGetShelters()
 
