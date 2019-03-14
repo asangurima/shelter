@@ -20,6 +20,12 @@ body {
   margin: 10px;
 }
 
+.hello {
+  font-size: 15px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+}
+
 #nav-item {
   font-family: 'Quicksand', sans-serif;
 }
@@ -61,7 +67,7 @@ main {
     }
   }
 
-.content {
+  .content {
     @include make-row;
     //
     // &:empty {
@@ -79,5 +85,12 @@ main {
     //   border-left: 1px solid;
     //   border-top: 1px solid;
     // }
+  }
+}
+
+// this is not working to fix the border on mobile view...?
+@media (max-width: 700px) {
+  .shelter {
+    margin: 10px;
   }
 }
