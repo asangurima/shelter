@@ -85,9 +85,9 @@ const signOutSuccess = () => {
 }
 
 const signOutFailure = () => {
-  $('..user-messages').text('Something went wrong, please try again!')
+  $('.user-messages').text('Something went wrong, please try again!')
   setTimeout(() => {
-    $('.auth-messages').text('')
+    $('.user-messages').text('')
   }, 2000)
 }
 //

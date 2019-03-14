@@ -64,22 +64,23 @@ const getShelter = (id) => {
 //   })
 // }
 
-const updateShelter = (data) => {
+const updateShelter = (data, id) => {
+  console.log('data')
+  console.log(data)
   return $.ajax({
-    url: config.apiUrl + '/books/' + data.shelter.id,
+    url: config.apiUrl + '/shelters/' + id,
     method: 'PATCH',
+    headers: { Authorization: 'Token token=' + store.user.token },
     data
   })
 }
 
-const deleteShelter = (shelterId) => {
+const deleteShelter = (id) => {
   // console.log('store:', store)
   return $.ajax({
-    url: config.apiUrl + `/shelters/` + shelterId,
+    url: config.apiUrl + `/shelters/` + id,
     method: 'DELETE',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
+    headers: { Authorization: 'Token token=' + store.user.token }
   })
 }
 

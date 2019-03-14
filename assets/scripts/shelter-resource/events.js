@@ -6,12 +6,16 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 
 const onGetShelters = () => {
+  if (event) { event.preventDefault() }
+
   api.getShelters()
     .then(ui.getSheltersSuccess)
     .catch(ui.getSheltersFailure)
 }
 
 const onGetUserShelters = () => {
+  if (event) { event.preventDefault() }
+
   api.getUserShelters()
     .then(ui.getUserSheltersSuccess)
     .catch(ui.getSheltersFailure)
@@ -36,6 +40,7 @@ const onCreateShelter = (event) => {
   // console.log('after integering', formData)
   api.createShelter(formData)
     .then(ui.createShelterSuccess)
+    .then(onGetUserShelters)
     .catch(ui.createShelterFailure)
 }
 
@@ -48,18 +53,26 @@ const onCreateShelter = (event) => {
 // }
 
 const onUpdateShelter = (event) => {
+  // console.log('onUpdateShelter')
   event.preventDefault()
 
-  api.updateShelter()
+  const form = event.target
+  const formData = getFormFields(form)
+  const id = $(event.target).data('id')
+  // console.log(id)
+  api.updateShelter(formData, id)
     .then(ui.updateShelterSuccess)
+    .then(onGetUserShelters)
     .catch(ui.updateShelterFailure)
 }
 
 const onDeleteShelter = (event) => {
   event.preventDefault()
 
-  api.deleteShelter()
-    .then(ui.deleteShelterSuccess)
+  const id = $(event.target).data('id')
+  api.deleteShelter(id)
+    .then(ui.deleteShelterSuccess(id))
+    .then(onGetUserShelters)
     .catch(ui.deleteShelterFailure)
 }
 
@@ -67,9 +80,8 @@ const addHandlers = () => {
   $('#RefreshSheltersButton').on('click', onRefreshShelters)
   $('#create-shelter-form').on('submit', onCreateShelter)
   $('#get-user-shelters-button').on('click', onGetUserShelters)
-  $('#content').on('submit', '#update-shelter-form', onUpdateShelter)
-  $('#content').on('click', '#delete-shelter-button', onDeleteShelter)
-  // $('#-form').on('submit', onUpdateShelter)
+  $('#content').on('submit', '.update-shelter-form', onUpdateShelter)
+  $('#content').on('click', '.delete-shelter-button', onDeleteShelter)
 }
 
 module.exports = {
