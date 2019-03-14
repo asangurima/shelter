@@ -19,7 +19,7 @@ const getUserSheltersSuccess = (data) => {
 }
 
 const getSheltersFailure = () => {
-  $('.content').text('Something went wrong. Unable to retrieve shelter data')
+  $('.content').text('Something went wrong. Unable to retrieve shelter data.')
   setTimeout(() => {
     $('.content').html('')
   }, 3000)
