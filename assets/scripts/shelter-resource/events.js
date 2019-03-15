@@ -15,7 +15,7 @@ const onGetShelters = () => {
 
 const onGetUserShelters = () => {
   if (event) { event.preventDefault() }
-
+  event.preventDefault()
   api.getUserShelters()
     .then(ui.getUserSheltersSuccess)
     .catch(ui.getSheltersFailure)
@@ -79,7 +79,7 @@ const onDeleteShelter = (event) => {
 const addHandlers = () => {
   $('#RefreshSheltersButton').on('click', onRefreshShelters)
   $('#create-shelter-form').on('submit', onCreateShelter)
-  $('#get-user-shelters-button').on('click', onGetUserShelters)
+  // $('#get-user-shelters-button').on('click', onGetUserShelters)
   $('#content').on('submit', '.update-shelter-form', onUpdateShelter)
   $('#content').on('click', '.delete-shelter-button', onDeleteShelter)
 }

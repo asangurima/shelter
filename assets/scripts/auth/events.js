@@ -3,6 +3,8 @@
 const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
+const shelterApi = require('../shelter-resource/api.js')
+const shelterUi = require('../shelter-resource/ui.js')
 
 const onSignUp = (event) => {
   event.preventDefault()
@@ -25,6 +27,8 @@ const onSignIn = (event) => {
   const formData = getFormFields(form)
   api.signIn(formData)
     .then(ui.signInSuccess)
+    .then(shelterApi.getUserShelters)
+    .then(shelterUi.getUserSheltersSuccess)
     .catch(ui.signInFailure)
 }
 
