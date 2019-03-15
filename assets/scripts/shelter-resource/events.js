@@ -27,6 +27,7 @@ const onRefreshShelters = (event) => {
   // console.log('Running on refresh events!')
   api.getShelters()
     .then(ui.getSheltersSuccess)
+    .then($('.user-messages').text('Shelter data updated!', setTimeout(() => { $('.user-messages').text('') }, 3000)))
     .catch(ui.getSheltersFailure)
 }
 
