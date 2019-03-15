@@ -146,7 +146,15 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <p>This app was created by Alessandra Sangurima as her first full-stack project.
+                  <p>
+                    <br>
+                    View up to date information about local shelters.
+                    <br>
+                    <br>
+                    Shelters, register to upload your profile!
+                    <br>
+                    <br>
+                    This app was created by Alessandra Sangurima as her first full-stack project.
                     She was inspired by her experience working in social services.</p>
                 </div>
                 <div class="modal-footer">
@@ -185,11 +193,11 @@
         </div>
         <div class="form-group">
           <label for="InputShelterNumber">Phone Number:</label>
-          <input required type="text" name="shelter[phone_num]" class="form-control" id="InputShelterNumber" placeholder="Shelter Phone Number">
+          <input required type="tel" name="shelter[phone_num]" class="form-control" id="InputShelterNumber" placeholder="Shelter Phone Number">
         </div>
         <div class="form-group">
           <label for="InputShelterBeds">Number of Available Beds:</label>
-          <input required type="number" name="shelter[avail_beds]" class="form-control" id="InputShelterBeds" placeholder="# of currently available beds">
+          <input required type="number" min="0" name="shelter[avail_beds]" class="form-control" id="InputShelterBeds" placeholder="# of currently available beds">
         </div>
         <button type="submit" class="btn submit">Submit</button>
       </form>

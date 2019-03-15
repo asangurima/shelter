@@ -45,11 +45,17 @@ const onSignOut = (event) => {
     .catch(ui.signOutFailure)
 }
 
+const formReset = (event) => {
+  event.preventDefault()
+  $('form').trigger('reset')
+}
+
 const addHandlers = () => {
   $('#sign-up-form').on('submit', onSignUp)
   $('#sign-in-form').on('submit', onSignIn)
   $('#change-pw-form').on('submit', onChangePassword)
   $('#sign-out').on('click', onSignOut)
+  $('.close').on('click', formReset)
 }
 
 module.exports = {
