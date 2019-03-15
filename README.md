@@ -1,4 +1,4 @@
-Shelter Client README
+### Shelter Client README
 
 ## Project Idea
 Create an app where people can easily see current information about
@@ -9,6 +9,9 @@ able to view and edit data about the shelter.
 Link to API github: https://github.com/asangurima/shelter-api
 
 Link to API on heroku: https://gimmeshelter.herokuapp.com
+
+Link to Client deployed site: https://asangurima.github.io/shelter
+
 
 ## User Stories
 ##### As a person seeking shelter or social worker I would like to:
@@ -49,7 +52,11 @@ Link to API on heroku: https://gimmeshelter.herokuapp.com
   - jQuery
   - Handlebars
   - Bootstrap
-  - Ruby (backend)
+  - Backend:
+    - Ruby
+    - Rails
+    - Heroku
+    - Postgresql
 
 ## Unsolved Problems
  Most of the things that I didn't get a chance to complete were in the backend.
