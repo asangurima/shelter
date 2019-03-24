@@ -14,7 +14,6 @@ const onGetShelters = () => {
 }
 
 const onGetUserShelters = () => {
-  if (event) { event.preventDefault() }
   event.preventDefault()
   api.getUserShelters()
     .then(ui.getUserSheltersSuccess)
@@ -87,5 +86,6 @@ const addHandlers = () => {
 
 module.exports = {
   onGetShelters,
+  onGetUserShelters,
   addHandlers
 }
