@@ -1,5 +1,4 @@
 {{#each shelters as |shelter|}}
-  {{log shelter}}
 
   <section class="shelter signed-in-view" data-id="{{shelter.id}}">
     <h4>
@@ -34,19 +33,19 @@
             <form class="update-shelter-form" data-id={{shelter.id}}>
               <div class="form-group">
                 <label for="InputShelterName">Name of Shelter:</label>
-                <input required type="text" name="shelter[name]" class="form-control" placeholder="Shelter Name">
+                <input required type="text" name="shelter[name]" class="form-control" placeholder="Shelter Name" value="{{shelter.name}}">
               </div>
               <div class="form-group">
                 <label for="InputShelterLocation">Address:</label>
-                <input required type="text" name="shelter[location]" class="form-control" placeholder="Shelter Address">
+                <input required type="text" name="shelter[location]" class="form-control" placeholder="Shelter Address" value="{{shelter.location}}">
               </div>
               <div class="form-group">
                 <label for="InputShelterNumber">Phone Number:</label>
-                <input required type="text" name="shelter[phone_num]" class="form-control" placeholder="Shelter Phone Number">
+                <input required type="text" name="shelter[phone_num]" class="form-control" placeholder="Shelter Phone Number" value="{{shelter.phone_num}}">
               </div>
               <div class="form-group">
                 <label for="InputShelterBeds">Number of Available Beds:</label>
-                <input required type="number" name="shelter[avail_beds]" class="form-control" placeholder="# of currently available beds">
+                <input required type="number" name="shelter[avail_beds]" class="form-control" placeholder="# of currently available beds" value="{{shelter.avail_beds}}">
               </div>
               <input type="submit" class="btn submit" value="Save Changes">
             </form>

@@ -16,6 +16,7 @@ const getSheltersSuccess = (data) => {
 const getUserSheltersSuccess = (data) => {
   const showUserSheltersHtml = showUserSheltersTemplate({ shelters: data.shelters })
   $('#content').html(showUserSheltersHtml)
+  $()
 }
 
 const getSheltersFailure = () => {
