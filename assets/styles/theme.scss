@@ -1,18 +1,29 @@
-
 * {
-  font-family: 'Montserrat', sans-serif;
-  }
+  font-family: 'Quicksand', sans-serif;
+}
 
 body {
   background-color: $shelter-lighter-lavender-color;
 }
 
+
 .title {
-    color: $shelter-dark-purple-color;
-    font-size: 30px;
-    font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
+  color: $shelter-dark-purple-color;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
 }
+
+.user-messages {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 15px;
+}
+
+.padded-form {
+  padding: 30px;
+}
+
 
 .submit, .refresh {
   background-color: $shelter-dark-periwinkle-color;
@@ -22,12 +33,6 @@ body {
 .refresh {
   padding: auto;
   margin: 10px;
-}
-
-.hello {
-  font-size: 15px;
-  font-weight: bold;
-  font-family: 'Montserrat', sans-serif;
 }
 
 #nav-item {
@@ -71,7 +76,7 @@ main {
     }
   }
 
-  .content {
+.content {
     @include make-row;
     //
     // &:empty {
@@ -89,12 +94,5 @@ main {
     //   border-left: 1px solid;
     //   border-top: 1px solid;
     // }
-  }
-}
-
-// this is not working to fix the border on mobile view...?
-@media screen and (max-width: 700px) {
-  .shelter {
-    margin: + 1px;
   }
 }

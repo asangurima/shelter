@@ -8,7 +8,10 @@ const shelterEvents = require('./shelter-resource/events.js')
 // require('./example')
 
 $(() => {
+  // this "gets" all shelters on the front page without having to press a button
   shelterEvents.onGetShelters()
+  // adds handlers for Authorization
   authEvents.addHandlers()
+  // adds handlers for all shelter resource events
   shelterEvents.addHandlers()
 })

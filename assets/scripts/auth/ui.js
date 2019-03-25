@@ -19,6 +19,7 @@ const signUpFailure = () => {
 }
 
 const signInSuccess = (responseData) => {
+  $('.hello').text(` Hello, ${responseData.user.email}!`)
   $('.user-messages').text(`Successfully signed in!`)
   setTimeout(() => {
     $('.user-messages').text('')
@@ -33,7 +34,6 @@ const signInSuccess = (responseData) => {
   $('.signed-out-view').addClass('d-none')
   // this should make the sign in view display on succesful sign-in
   $('.signed-in-view').removeClass('d-none')
-
   // const revealBoard = () => {
   //   $('.game-board').removeClass('d-none')
   //   $('.userMessages').html('x starts the game!')
@@ -55,7 +55,7 @@ const changePasswordSuccess = () => {
   $('.change-pw-msg').text('Successfully updated password.')
   $('form').trigger('reset')
   setTimeout(() => {
-    $('.password-messages').text('')
+    $('.change-pw-msg').text('')
   }, 2000)
 }
 
@@ -63,7 +63,7 @@ const changePasswordFailure = () => {
   $('.change-pw-msg').text('Something went wrong, please try again!')
   $('form').trigger('reset')
   setTimeout(() => {
-    $('.password-messages').text('')
+    $('.change-pw-msg').text('')
   }, 2000)
 }
 
@@ -79,6 +79,9 @@ const signOutSuccess = () => {
   // console.log('About to display all shelters again!')
   // How do i trigger on refresh shelters to run again from here???
   shelterEvents.onGetShelters()
+
+  // clear the "hello, user" message
+  $('.hello').text('')
 
   store.user = null
   setTimeout(() => {

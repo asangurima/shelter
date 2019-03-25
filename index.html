@@ -34,7 +34,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">Shelter Sign In</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <button type="button" class="close clear-on-close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
@@ -68,7 +68,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">Register A Shelter</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <button type="button" class="close clear-on-close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
@@ -106,7 +106,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">Change Password</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <button type="button" class="close clear-on-close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
@@ -141,13 +141,12 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">About</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <button type="button" class="close clear-on-close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
                   <p>
-                    <br>
                     View up to date information about local shelters.
                     <br>
                     <br>
@@ -158,7 +157,7 @@
                     She was inspired by her experience working in social services.</p>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-secondary clear-on-close" data-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>
@@ -174,17 +173,14 @@
 
   </nav>
   <main>
-    <section class= 'hello signed-in-view d-none'></section>
+    <section class="hello"></section>
     <section class="user-messages"></section>
-    <button id="RefreshSheltersButton" class="btn refresh signed-out-view">View All Shelters</button>
-    <small id="emailHelp" class="form-text text-muted signed-out-view">Click above for latest shelter data!</small>
-    <br> <br>
-    <div id="content" class="content">  </div>
+    <button id="RefreshSheltersButton" class="btn refresh signed-out-view">Refresh Shelter Data</button>
+    <div id="content" class="content"> </div>
       <!-- Get User Shelters Button -->
-      <!-- <br> <button id='get-user-shelters-button' class='btn sumbit signed-in-view d-none'>View Your Shelters</button> <br> -->
+      <br> <button id='get-user-shelters-button' class='btn submit signed-in-view d-none'>View Your Shelters</button> <br>
       <!-- Create Shelter Form -->
-      <br> <br>
-      <div class="forms signed-in-view d-none"> <h3>Create A New Shelter Profile:</h3>
+      <div class="forms padded-form signed-in-view d-none"> <h3>Create A New Shelter Profile:</h3>
       <form id="create-shelter-form">
         <div class="form-group">
           <label for="InputShelterName">Name of Shelter:</label>
@@ -196,15 +192,16 @@
         </div>
         <div class="form-group">
           <label for="InputShelterNumber">Phone Number:</label>
-          <input required type="tel" name="shelter[phone_num]" class="form-control" id="InputShelterNumber" placeholder="Shelter Phone Number">
+          <input required type="text" name="shelter[phone_num]" class="form-control" id="InputShelterNumber" placeholder="Shelter Phone Number">
         </div>
         <div class="form-group">
           <label for="InputShelterBeds">Number of Available Beds:</label>
-          <input required type="number" min="0" name="shelter[avail_beds]" class="form-control" id="InputShelterBeds" placeholder="# of currently available beds">
+          <input required type="number" name="shelter[avail_beds]" class="form-control" id="InputShelterBeds" placeholder="# of currently available beds">
         </div>
         <button type="submit" class="btn submit">Submit</button>
       </form>
     </div>
+
   </main>
 </body>
 
