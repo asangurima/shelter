@@ -65,8 +65,8 @@ const getShelter = (id) => {
 // }
 
 const updateShelter = (data, id) => {
-  console.log('data')
-  console.log(data)
+  // console.log('data')
+  // console.log(data)
   return $.ajax({
     url: config.apiUrl + '/shelters/' + id,
     method: 'PATCH',
