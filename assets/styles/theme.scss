@@ -1,18 +1,30 @@
 
 * {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
 
 body {
   background-color: $shelter-lighter-lavender-color;
 }
 
+
 .title {
-    color: $shelter-dark-purple-color;
-    font-size: 30px;
-    font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
+  color: $shelter-dark-purple-color;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
 }
+
+.user-messages {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 15px;
+}
+
+.padded-form {
+  padding: 30px;
+}
+
 
 .submit, .refresh {
   background-color: $shelter-dark-periwinkle-color;

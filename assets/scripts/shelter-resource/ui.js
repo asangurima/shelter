@@ -13,10 +13,20 @@ const getSheltersSuccess = (data) => {
   $('#content').html(showSheltersHtml)
 }
 
+const refreshShelterSuccess = (data) => {
+  $('.user-messages').text('Refreshed shelter data!')
+  setTimeout(() => {
+    $('.user-messages').text('')
+  }, 2000)
+}
+
 const getUserSheltersSuccess = (data) => {
   const showUserSheltersHtml = showUserSheltersTemplate({ shelters: data.shelters })
   $('#content').html(showUserSheltersHtml)
-  $()
+  $('.user-messages').text('Refreshed shelter data!')
+  setTimeout(() => {
+    $('.user-messages').text('')
+  }, 2000)
 }
 
 const getSheltersFailure = () => {
@@ -86,6 +96,7 @@ const updateShelterFailure = () => {
 
 module.exports = {
   getSheltersSuccess,
+  refreshShelterSuccess,
   getUserSheltersSuccess,
   getSheltersFailure,
   createShelterSuccess,

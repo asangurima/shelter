@@ -19,9 +19,10 @@ const signUpFailure = () => {
 }
 
 const signInSuccess = (responseData) => {
+  $('.hello').text(` Hello, ${responseData.user.email}!`)
   $('.user-messages').text(`Successfully signed in!`)
   setTimeout(() => {
-    $('.hello').text(` Hello, ${responseData.user.email}!`)
+    $('.user-messages').text('')
   }, 2000)
   $('form').trigger('reset')
   // Closes sign-in modal on successful sign in
@@ -32,7 +33,6 @@ const signInSuccess = (responseData) => {
   $('.signed-out-view').addClass('d-none')
   // this should make the sign in view display on succesful sign-in
   $('.signed-in-view').removeClass('d-none')
-
   // const revealBoard = () => {
   //   $('.game-board').removeClass('d-none')
   //   $('.userMessages').html('x starts the game!')

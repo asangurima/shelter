@@ -24,9 +24,10 @@ const onGetUserShelters = () => {
 // this is triggered on sign out! Need to clear the form.
 const onRefreshShelters = (event) => {
   event.preventDefault()
-  console.log('Running on refresh events!')
+  // console.log('Running on refresh events!')
   api.getShelters()
     .then(ui.getSheltersSuccess)
+    .then(ui.refreshShelterSuccess)
     .catch(ui.getSheltersFailure)
 }
 
