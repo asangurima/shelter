@@ -14,7 +14,7 @@ const getSheltersSuccess = (data) => {
 }
 
 const refreshShelterSuccess = (data) => {
-  $('.user-messages').text('Refreshed shelter data!')
+  $('.user-messages').text('Updated shelter data')
   setTimeout(() => {
     $('.user-messages').text('')
   }, 2000)
@@ -23,9 +23,9 @@ const refreshShelterSuccess = (data) => {
 const getUserSheltersSuccess = (data) => {
   const showUserSheltersHtml = showUserSheltersTemplate({ shelters: data.shelters })
   $('#content').html(showUserSheltersHtml)
-  $('.user-messages').text('Refreshed shelter data!')
+  $('.user-refresh-msg').text('Updated shelter data.')
   setTimeout(() => {
-    $('.user-messages').text('')
+    $('.user-refresh-msg').text('')
   }, 2000)
 }
 
