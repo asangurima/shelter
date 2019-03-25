@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Shelter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Nanum+Gothic|Quicksand|Ubuntu" rel="stylesheet">
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <!-- Navbar! -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+    <div class="navbar-brand" id="navbar-brand">
+      <img src="public/home-icon-lavender.png" width="40" height="40" class="d-inline-block align-top" alt="shelter icon">
+      <p class="title d-inline-block align-top">Shelter</p>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <!-- Sign in link/modal -->
+        <li class="nav-item signed-out-view">
+          <a class="nav-link" data-toggle="modal" data-target=".modal-sign-in" href="#">Shelter Sign In</a>
+          <div class="modal fade modal-sign-in" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Shelter Sign In</h5>
+                  <button type="button" class="close clear-on-close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="sign-in-form">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input type="email" name="credentials[email]" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                      <!-- <small id="emailHelp" class="form-text text-muted">Please do not put in real information- app not secure.</small> -->
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input name="credentials[password]" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn submit">Submit</button>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <p class='sign-in-msg'></p>
+                  <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <!-- Sign up Link/Modal -->
+        <li class="nav-item signed-out-view">
+          <a class="nav-link" data-toggle="modal" data-target=".modal-register" href="#">Register A Shelter</a>
+          <div class="modal fade modal-register" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Register A Shelter</h5>
+                  <button type="button" class="close clear-on-close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="sign-up-form">
+                    <div class="form-group">
+                      <label for="RegisterInputEmail">Email address</label>
+                      <input name="credentials[email]" type="email" class="form-control" id="RegisterInputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                      <small id="emailHelp" class="form-text text-muted">Please do not put in real information- app not secure.</small>
+                    </div>
+                    <div class="form-group">
+                      <label for="RegisterInputPassword1">Password</label>
+                      <input name="credentials[password]" type="password" class="form-control" id="RegisterInputPassword1" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                      <label for="RegisterInputPassword2">Confirm Password</label>
+                      <input name="credentials[password_confirmation]" type="password" class="form-control" id="RegisterInputPassword2" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn submit">Submit</button>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <p class='register-msg'></p>
+                  <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <!-- Change Password Link/Modal -->
+        <li class="nav-item signed-in-view d-none">
+          <a class="nav-link" data-toggle="modal" data-target=".modal-change-pw" href="#">Change Password</a>
+          <div class="modal fade modal-change-pw" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Change Password</h5>
+                  <button type="button" class="close clear-on-close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="change-pw-form">
+                    <div class="form-group">
+                      <label for="InputOldPassword">Old Password</label>
+                      <input type="password" name="passwords[old]" class="form-control" id="InputOldPassword" aria-describedby="passwordHelp" placeholder="Enter Old Password">
+                      <small id="passwordHelp" class="form-text text-muted">Please do not put in real passwords you use anywhere else.</small>
+                    </div>
+                    <div class="form-group">
+                      <label for="InputNewPassword">Password</label>
+                      <input name="passwords[new]" type="password" class="form-control" id="InputNewPassword" placeholder="Enter New Password">
+                    </div>
+                    <button type="submit" class="btn submit">Submit</button>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <p class='change-pw-msg'></p>
+                  <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- About Link/ Modal -->
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target=".modal-about" href="#">About</a>
+          <div class="modal fade modal-about" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">About</h5>
+                  <button type="button" class="close clear-on-close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>
+                    View up to date information about local shelters.
+                    <br>
+                    <br>
+                    Shelters, register to upload your profile!
+                    <br>
+                    <br>
+                    This app was created by Alessandra Sangurima as her first full-stack project.
+                    She was inspired by her experience working in social services.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary clear-on-close" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <!-- Sign out Button -->
+        <li class="nav-item signed-in-view d-none">
+          <button type="submit" id="sign-out" class="btn submit sign-out">Sign Out</button>
+        </li>
+
+      </ul>
+    </div>
+
+  </nav>
+  <main>
+    <section class="hello"></section>
+    <section class="user-messages"></section>
+    <section class="user-refresh-msg signed-in-view d-none"></section>
+    <button id="RefreshSheltersButton" class="btn refresh signed-out-view">Refresh Shelter Data</button>
+    <div id="content" class="content"> </div>
+      <!-- Get User Shelters Button -->
+      <br> <button id='get-user-shelters-button' class='btn submit signed-in-view d-none'>View Your Shelters</button> <br>
+      <!-- Create Shelter Form -->
+      <div class="forms padded-form signed-in-view d-none"> <h3>Create A New Shelter Profile:</h3>
+      <form id="create-shelter-form">
+        <div class="form-group">
+          <label for="InputShelterName">Name of Shelter:</label>
+          <input required type="text" name="shelter[name]" class="form-control" id="InputShelterName" placeholder="Shelter Name">
+        </div>
+        <div class="form-group">
+          <label for="InputShelterLocation">Address:</label>
+          <input required type="text" name="shelter[location]" class="form-control" id="InputShelterLocation" placeholder="Shelter Address">
+        </div>
+        <div class="form-group">
+          <label for="InputShelterNumber">Phone Number:</label>
+          <input required type="text" name="shelter[phone_num]" class="form-control" id="InputShelterNumber" placeholder="Shelter Phone Number">
+        </div>
+        <div class="form-group">
+          <label for="InputShelterBeds">Number of Available Beds:</label>
+          <input required type="number" name="shelter[avail_beds]" class="form-control" id="InputShelterBeds" placeholder="# of currently available beds">
+        </div>
+        <button type="submit" class="btn submit">Submit</button>
+      </form>
+    </div>
+
+  </main>
+</body>
+
+</html>
